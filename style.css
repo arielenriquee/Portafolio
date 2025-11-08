@@ -92,7 +92,7 @@ header video{
 }
 #navbar div a:hover{
     color:var(--white);
-    transition: color .3s easy , color .3s ease;
+    transition: color .3s ease , color .3s ease;
     
 }
 span{
@@ -193,7 +193,7 @@ span{
     transform: translate(-50%,50%);
     color: var(--white);
     opacity: 0;
-    transition: bottom ease 0.3s , opacity easy 0.3s;
+    transition: bottom ease 0.3s , opacity ease 0.3s;
 }
 #portafolio button:hover h4{
     bottom:30%;
@@ -261,4 +261,29 @@ span{
 #experience h4{
     font-size: 1rem;
     margin-bottom: 3rem;
+
+}
+#skillset > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin: 1rem;
+}
+@media (max-width: 768px) {
+    body {
+        font-size: 13px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    #skillset img {
+        max-width: 5rem;
+    }
 }
