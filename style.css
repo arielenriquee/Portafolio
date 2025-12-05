@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 :root {
     --primary: hsl(187, 100%, 16%);
     --primary-dark: hsla(194, 84%, 48%, 0.947);
@@ -12,53 +18,53 @@
     --black2: #2a2b2b;
 }
 
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     color: var(--gray3);
     text-align: center;
     font-size: 14px;
+    background: linear-gradient(var(--white), var(--white2));
 }
 
-header,
-footer,
-section.even {
+header, footer, section.even {
     color: var(--white);
 }
 
-h3 {
-    font-size: 2rem;
-}
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
 
-h2,
-h3,
-h4 {
+h2, h3, h4 {
     letter-spacing: 0.3rem;
 }
 
-h1,
-h3 {
+h1, h3 {
     text-transform: uppercase;
 }
 
-h4 {
-    font-size: 1.5rem;
+
+h1, h2, h3, h4, p, span {
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
 }
 
 .circle {
     border-radius: 50%;
 }
 
-html {
-    background: linear-gradient(var(--white), var(--white2));
-}
-
 section {
     padding-top: 3rem;
     padding-bottom: 3rem;
+    width: 100%; 
 }
 
-#navbar,
-section.even {
+#navbar, section.even {
     background: linear-gradient(var(--primary), var(--primary-dark));
 }
 
@@ -67,6 +73,7 @@ footer {
     padding: 2rem 0;
 }
 
+/* LÍNEAS SEPARADORAS */
 body hr {
     height: 0.1rem;
     max-width: 100%;
@@ -82,30 +89,61 @@ section hr {
     margin-bottom: 5rem;
 }
 
+
+/* --- HEADER --- */
+
 header {
-    padding: 5rem 0 3rem;
-    position: relative;
-    overflow: hidden;
+    position: relative; 
+    overflow: hidden;   
+    padding: 5rem 1rem 3rem;
     background: linear-gradient(var(--black), var(--black2));
+    
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
 
 header video {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+    
     min-width: 100%;
     min-height: 100%;
-    opacity: 0.1;
+    width: auto;
+    height: auto;
+    
+    opacity: 0.1; 
+    z-index: 0;  
+    object-fit: cover;
 }
+
+header img, 
+header h1, 
+header h2, 
+header hr {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* --- NAVBAR --- */
 
 #navbar {
     box-shadow: 0px 0px 10px 1px var(--gray3);
+    width: 100%;
+    z-index: 1000; 
 }
 
-#navbar div {
+#navbar > div {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding-right: 10px; 
 }
 
 #navbar div a {
@@ -114,27 +152,22 @@ header video {
     align-items: center;
     text-decoration: none;
     color: var(--black);
+    max-width: 80%; 
 }
 
 #navbar div a:hover {
     color: var(--white);
-    transition: color .3s easy, color .3s ease;
+    transition: color .3s ease;
 }
 
-span {
-    margin-right: 0.5rem;
-}
-
-#navbar div img {
-    margin-right: 0.5rem;
-}
+span { margin-right: 0.5rem; }
+#navbar div img { margin-right: 0.5rem; }
 
 #navbar button {
     background-color: transparent;
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 2rem; 
     padding: 0.2rem 0.7rem;
-    border-radius: 2rem;
     cursor: pointer;
     border: none;
 }
@@ -146,30 +179,26 @@ span {
     margin: 0;
     max-height: 0;
     transition: max-height .3s ease;
-    position: absolute;
     width: 100%;
     overflow: hidden;
 }
 
 #navbar.open ul {
-    max-height: 150px;
+    max-height: 200px; 
 }
 
-#navbar li {
-    list-style: none;
-    padding: 0;
-}
+#navbar li { list-style: none; }
 
 #navbar ul a {
     display: block;
-    padding: 10px 15px;
+    padding: 15px;
     text-decoration: none;
     color: var(--white);
     transition: color .3s ease, background-color .3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-#navbar ul a:hover,
-#navbar ul a:focus {
+#navbar ul a:hover {
     color: var(--black);
     background-color: var(--white);
 }
@@ -179,16 +208,19 @@ span {
     top: 0;
     left: 0;
     width: 100%;
-    top: 0;
     z-index: 100;
 }
+
+
+/* --- PORTFOLIO --- */
 
 #portafolio .proyecto-card {
     display: block;
     position: relative;
     margin: 1rem auto;
-    max-width: 400px;
-    overflow: hidden;
+    width: 90%;        
+    max-width: 400px;  
+   overflow: hidden;
     box-shadow: 0 0 10px var(--gray2);
     padding: 0;
     border: none;
@@ -199,14 +231,12 @@ span {
 
 #portafolio img {
     display: block;
-    max-height: 300px;
+    height: auto; 
     width: 100%;
     transition: transform ease 0.3s;
 }
 
-#portafolio .proyecto-card:hover img {
-    transform: scale(1.25);
-}
+#portafolio .proyecto-card:hover img { transform: scale(1.25); }
 
 #portafolio .proyecto-card:before {
     content: "";
@@ -221,9 +251,7 @@ span {
     opacity: 0;
 }
 
-#portafolio .proyecto-card:hover:before {
-    opacity: 0.75;
-}
+#portafolio .proyecto-card:hover:before { opacity: 0.75; }
 
 #portafolio h4 {
     display: block;
@@ -236,63 +264,60 @@ span {
     color: var(--white);
     opacity: 0;
     transition: bottom ease 0.3s, opacity ease 0.3s;
+    width: 100%;
+    text-align: center;
 }
 
 #portafolio .proyecto-card:hover h4 {
-    bottom: 30%;
-    opacity: 1;
+    bottom: 40%; 
 }
 
-#skillset>div {
+
+/* --- SKILLSET --- */
+
+#skillset > div {
     display: grid;
-    grid-gap: 1rem;
+    
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    gap: 1rem;
     margin: 1rem;
+    padding: 0 1rem; 
 }
 
 #skillset img {
     border-radius: 1rem;
-    max-width: 7rem;
+    max-width: 100%; 
+    width: 7rem;
     cursor: context-menu;
 }
 
-#skillset>div>div {
-    position: relative;
-}
+#skillset > div > div { position: relative; }
 
-#skillset span {
-    width: 120px;
-    background-color: rgba(0, 0, 0, 0.75);
+#skillset span.Tooltip {
+    width: 100px; 
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
     text-align: center;
     padding: 0.5rem 0;
     border-radius: 0.5rem;
     position: absolute;
-    z-index: 1;
+    z-index: 10;
     top: -40px;
     left: 50%;
-    transform: translate(-60px, 10px);
+    transform: translate(-50px, 10px); 
     opacity: 0;
     transition: opacity 0.3s ease, transform 0.3s ease;
     pointer-events: none;
 }
 
-#skillset>div>div:hover span {
+#skillset > div > div:hover span.Tooltip {
     opacity: 1;
-    transform: translate(-60px, 0px)
+    transform: translate(-50px, 0px);
 }
 
-#skillset span::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: rgba(0, 0, 0, 0.75) transparent transparent transparent;
-}
 
+/* --- EXPERIENCE --- */
 #experience img {
-    height: 100%;
     background: white;
     width: 150px;
     height: 150px;
@@ -301,6 +326,7 @@ span {
     border-radius: 25px;
     cursor: pointer;
     transition: border-radius 0.3s ease, box-shadow 0.3s;
+    max-width: 100%; 
 }
 
 #experience img:hover {
@@ -308,58 +334,40 @@ span {
     box-shadow: 0px 0px 10px 1px var(--gray2);
 }
 
-#experience h4 {
-    font-size: 1rem;
-    margin-bottom: 3rem;
-}
 
-#skillset>div {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
-    margin: 1rem;
-}
-
-
-/* =================================================== */
-/* --- ESTILOS PARA MÓVILES (MEDIA QUERY) --- */
-/* =================================================== */
-
-/* Todo lo que esté aquí dentro se aplicará solo si la 
-   pantalla mide 768px de ancho o menos */
+/* --- MEDIA QUERY (MÓVILES) --- */
 
 @media (max-width: 768px) {
 
-    /* Reduce el tamaño de los encabezados */
-    h3 {
-        font-size: 1.8rem;
+   
+    h2, h3, h4 {
+        letter-spacing: 0.1rem;
     }
+    
+    h1 { font-size: 1.5rem; }
+    h3 { font-size: 1.5rem; }
+    h4 { font-size: 1.2rem; }
 
-    h4 {
-        font-size: 1.3rem;
-    }
-
-    /* Reduce el espaciado vertical (padding) en todas las secciones */
     section {
         padding-top: 2rem;
         padding-bottom: 2rem;
     }
 
-    section hr {
-        margin-bottom: 3rem;
+    section hr { margin-bottom: 3rem; }
+    header { padding: 3rem 1rem 2rem; }
+
+    
+ 
+    #navbar div a small {
+        display: none;
+    }
+ 
+    #navbar div a span {
+        font-size: 0.9rem;
+        white-space: nowrap; 
     }
     
-    /* Reduce el espaciado del header */
-    header {
-        padding: 3rem 0 2rem;
-    }
-
-    /* Ajusta la altura de la imagen del portafolio */
-    #portafolio img {
-        max-height: 250px;
-    }
-
-    /* Reduce un poco los logos de experiencia */
+    #portafolio img { max-height: none; }
     #experience img {
         width: 120px;
         height: 120px;
